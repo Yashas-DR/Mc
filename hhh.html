@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+</head>
+<body>
+    /*
+    /*3.<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <title>Number Calculator with AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+
+  <div ng-controller="CalculatorCtrl">
+    <h1>Number Calculator with AngularJS</h1>
+    <p>Enter a number:</p>
+    <input type="number" ng-model="number1">
+    <p>Enter another number:</p>
+    <input type="number" ng-model="number2">
+    <p>Result: {{ number1 }} + {{ number2 }} = {{ number1 + number2 }}</p>
+    <p>Result: {{ number1 }} - {{ number2 }} = {{ number1 - number2 }}</p>
+    <p>Result: {{ number1 }} * {{ number2 }} = {{ number1 * number2 }}</p>
+    <p>Result: {{ number1 }} / {{ number2 }} = {{ number1 / number2 }}</p>
+  </div>
+
+  <script>
+    var app=angular.module('myApp', []);
+    app.controller('CalculatorCtrl', function ($scope) {
+      $scope.number1 = 0;
+      $scope.number2 = 0;
+    });
+  </script>
+
+</body>
+
+</html>
+1.<!DOCTYPE html>
+<html ng-app="fullNameApp">
+<head>
+ <title>AngularJS Full Name App</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="fullNameCtrl">
+ <h2>Enter your name:</h2>
+ <label for="firstName">First Name:</label>
+ <input type="text" ng-model="firstName" placeholder="Enter your first name">
+ <label for="lastName">Last Name:</label>
+ <input type="text" ng-model="lastName" placeholder="Enter your last name">
+ <br>
+ <button ng-click="displayFullName()">Display Full Name</button>
+ <br>
+ <p ng-show="fullName">Your Full Name: {{ fullName }}</p>
+ <script>
+ var app = angular.module('fullNameApp', []);
+ app.controller('fullNameCtrl', function ($scope) {
+ // Default values
+ $scope.firstName = 'John';
+ $scope.lastName = 'Doe';
+ $scope.displayFullName = function () {
+ // Concatenate first name and last name
+ $scope.fullName = $scope.firstName + ' ' + $scope.lastName;
+ };
+ });
+ </script>
+</body>
+</html>
+2.<!DOCTYPE html>
+<html ng-app="shoppingApp">
+<head>
+ <title>AngularJS Shopping App</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="shoppingCtrl">
+ <h2>Shopping List</h2>
+ <ul>
+ <li ng-repeat="item in shoppingItems">{{ item.name }} - <button ng-
+click="removeItem($index)">Remove</button></li>
+ </ul>
+ <label for="newItem">Add New Item:</label>
+ <input type="text" ng-model="newItem" placeholder="Enter item name">
+ <button ng-click="addItem()">Add Item</button>
+ <script>
+ var app = angular.module('shoppingApp', []);
+ app.controller('shoppingCtrl', function ($scope) {
+ // Default shopping items
+ $scope.shoppingItems = [
+ { name: 'Milk' },
+ { name: 'Bread' },
+ { name: 'Eggs' }
+ ];
+ // Function to add a new item
+ $scope.addItem = function () {
+ if ($scope.newItem) {
+ $scope.shoppingItems.push({ name: $scope.newItem });
+ $scope.newItem = ''; // Clear input after adding item
+ }
+ };
+ // Function to remove an item
+ $scope.removeItem = function (index) {
+ $scope.shoppingItems.splice(index, 1);
+ };
+ });
+ </script>
+ 4.<!DOCTYPE html>
+<html ng-app=”myApp”>
+<head>
+ <script src=https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js></script>
+</head>
+<body ng-controller=”myCtrl”>
+ <h2>Factorial and Square Calculator</h2>
+ <div>
+ <label>Enter a number:</label>
+ <input type=”number” ng-model=”number” />
+ </div>
+ <div>
+ <button ng-click=”calculateFactorial()”>Calculate Factorial</button>
+ <p>Factorial: {{ factorial }}</p>
+ </div>
+ <div>
+ <button ng-click=”computeSquare()”>Compute Square</button>
+ <p>Square: {{ square }}</p>
+ </div>
+ <script>
+ // Create AngularJS module
+ var app = angular.module(‘myApp’, []);
+ // Create AngularJS controller
+ app.controller(‘myCtrl’, function($scope) {
+ // Initialize variables
+ $scope.number = 0;
+ $scope.factorial = 0;
+ $scope.square = 0;
+ // Function to calculate factorial
+ $scope.calculateFactorial = function() {
+ var result = 1;
+ for (var I = 1; I <= $scope.number; i++) {
+ result *= I;
+ }
+ $scope.factorial = result;
+ };
+ // Function to compute square
+ $scope.computeSquare = function() {
+ $scope.square = $scope.number * $scope.number;
+ };
+ });
+ </script>
+</body>
+</html>
+5.<!DOCTYPE html>
+<html ng-app="studentApp">
+<head>
+ <title>AngularJS Student App</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="studentCtrl">
+ <h2>Student Details</h2>
+ <label for="numberOfStudents">Enter the Number of Students:</label>
+ <input type="number" ng-model="numberOfStudents">
+ <button ng-click="displayStudentDetails()">Display Student Details</button>
+ <br>
+ <p ng-show="students.length > 0">Total Students: {{ students.length }}</p>
+ <ul>
+ <li ng-repeat="student in students">Name: {{ student.name }}, CGPA: {{ student.cgpa 
+}}</li>
+ </ul>
+ <script>
+ var app = angular.module('studentApp', []);
+ app.controller('studentCtrl', function ($scope) {
+ $scope.students = [
+ { name: 'John', cgpa: 3.5 },
+ { name: 'Jane', cgpa: 3.8 },
+ { name: 'Bob', cgpa: 3.2 }
+ ];
+ $scope.displayStudentDetails = function () {
+ $scope.students = $scope.students.slice(0, $scope.numberOfStudents);
+ };
+ });
+ </script>
+</body>
+</html>*/
+
+    */
+</body>
+</html>
