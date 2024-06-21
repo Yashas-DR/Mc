@@ -1,0 +1,64 @@
+def convert(image, ch):
+    if ch == "Gray":
+        grayscale_image = image.convert('L')
+        tts = gTTS(text='Gray', lang='en',)
+        tts.save('output.mp3')
+        return grayscale_image,'output.mp3'
+    elif ch == "Blur":
+        blur_image = image.filter(ImageFilter.BLUR)
+        tts = gTTS(text='Blur', lang='en',)
+        tts.save('output.mp3')
+        return blur_image,'output.mp3'
+    elif ch == "Contour":
+        contour_image = image.filter(ImageFilter.CONTOUR)
+        tts = gTTS(text='Contour', lang='en',)
+        tts.save('output.mp3')
+        return contour_image,'output.mp3'
+    elif ch == "Detail":
+        detail_image = image.filter(ImageFilter.DETAIL)
+        tts = gTTS(text='Detail', lang='en',)
+        tts.save('output.mp3'),'output.mp3'
+        return detail_image
+    elif ch == "Find-Edges":
+        find_edges_image = image.filter(ImageFilter.FIND_EDGES)
+        tts = gTTS(text='Find-Edges', lang='en',)
+        tts.save('output.mp3'),'output.mp3'
+        return find_edges_image
+    elif ch == "Edge-Enhance":
+        edge_enhance_image = image.filter(ImageFilter.EDGE_ENHANCE)
+        tts = gTTS(text='Edge-Enhance', lang='en',)
+        tts.save('output.mp3')
+        return edge_enhance_image, 'output.mp3'
+    elif ch == "Emboss":
+        emboss_image = image.filter(ImageFilter.EMBOSS)
+        tts = gTTS(text='Emboss', lang='en',)
+        tts.save('output.mp3')
+        return emboss_image, 'output.mp3'
+    elif ch == "Find-Enhance-more":
+        find_image = image.filter(ImageFilter.EDGE_ENHANCE_MORE)
+        tts = gTTS(text='Find-Enhance-more', lang='en',)
+        tts.save('output.mp3')
+        return find_image, 'output.mp3'
+    elif ch == "Smooth":
+        smooth_image = image.filter(ImageFilter.SMOOTH)
+        tts = gTTS(text='Smooth', lang='en',)
+        tts.save('output.mp3')
+        return smooth_image, 'output.mp3'
+    elif ch == "Sharpen":
+        sharpen_image = image.filter(ImageFilter.SHARPEN)
+        tts = gTTS(text='Sharpen', lang='en',)
+        tts.save('output.mp3')
+        return sharpen_image, 'output.mp3'
+
+
+
+iface = gr.Interface(
+    fn=convert,
+    # Remove 'inputs.' from Image and Radio
+    inputs=[gr.Image(type="pil"), gr.Radio(["Gray", "Blur", "Contour", "Detail", "Find-Edges", "Edge-Enhance", "Emboss", "Find-Enhance-more", "Smooth", "Sharpen"], label="enter the choice")],
+    outputs=[
+        gr.Image(type="pil"),
+        gr.Audio(type="filepath")
+    ],
+    live=True
+)
