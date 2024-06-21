@@ -1,0 +1,39 @@
+def convert(image, ch):
+    if ch == "1":
+        grayscale_image = image.convert('L')
+        return grayscale_image
+    elif ch == "2":
+        blur_image = image.filter(ImageFilter.BLUR)
+        return blur_image 
+    elif ch == "3":
+        contour_image = image.filter(ImageFilter.CONTOUR)
+        return contour_image
+    elif ch == "4":
+        detail_image = image.filter(ImageFilter.DETAIL)
+        return detail_image
+    elif ch == "5":
+        find_edges_image = image.filter(ImageFilter.FIND_EDGES)
+        return find_edges_image
+    elif ch == "6":
+        edge_enhance_image = image.filter(ImageFilter.EDGE_ENHANCE)
+        return edge_enhance_image
+    elif ch == "7":
+        emboss_image = image.filter(ImageFilter.EMBOSS)
+        return emboss_image
+    elif ch == "8":
+        find_image = image.filter(ImageFilter.FIND_EDGES)
+        return find_image
+    elif ch == "9":
+        smooth_image = image.filter(ImageFilter.SMOOTH)
+        return smooth_image
+    elif ch == "10":
+        sharpen_image = image.filter(ImageFilter.SHARPEN)
+        return sharpen_image
+
+iface = gr.Interface(
+    fn=convert,
+    # Remove 'inputs.' from Image and Radio
+    inputs=[gr.Image(type="pil"), gr.Radio(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], label="Choose: 1.Gray 2.Blur 3.Contour 4.Detail 5.Find Edges 6.Edge Enhance 7.Emboss 8.Find Edges 9.Smooth 10.Sharpen")],
+    outputs="image",
+    live=True
+)
