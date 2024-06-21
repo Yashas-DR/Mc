@@ -62,3 +62,7 @@ iface = gr.Interface(
     ],
     live=True
 )
+
+
+cv2.ellipse(imgg, center=(100, 150), axes=(25, 25), angle=0, startAngle=0, endAngle=180, color=(255, 255, 0), thickness=3)
+cv2.line(imgg,pt1=(75,150),pt2=(125,150),color=(255,255,0),thickness=2)
