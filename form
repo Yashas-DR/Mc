@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <fieldset>
+        <legend>Shridevi Student REGISTRATION FORM</legend>
+        <legend>Enter Name:</legend>
+        <input type="text"placeholder="enter your name"><br><br>
+        <legend>E-mail:</legend>
+        <input type="email"><br><br>
+        <legend>Create Username:</legend>
+        <input type="text"><br><br>
+        <legend>Create Password:</legend>
+        <input type="password"><br><br>
+        <legend>Confirm Password:</legend>
+        <input type="password"><br><br>
+        <legend>Enter Your Phone Number</legend>
+        <input type="number"><br><br>
+        <label>Gender</label>
+        <input type="radio" name="radio">Male
+        <input type="radio" name="radio">Female<br><br>
+
+        <div class="su">
+        <button type="submit">submit</button><br></div>
+    </fieldset>
+    
+</body>
+</html>
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+fieldset {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+input, select, textarea, button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    display: inline-block;
+    width: auto;
+    margin-right: 10px;
+}
+
+label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.su {
+    text-align: center;
+}
+
+.su button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+
+
